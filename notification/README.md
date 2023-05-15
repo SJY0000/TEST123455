@@ -1,4 +1,4 @@
-# noti
+# notification
 
 ## Running in local development environment
 
@@ -10,8 +10,8 @@ mvn spring-boot:run
 
 ```
 mvn package -B -DskipTests
-docker build -t username/noti:v1 .
-docker run username/noti:v1
+docker build -t username/notification:v1 .
+docker run username/notification:v1
 ```
 
 ## Push images and running in Kubernetes
@@ -20,15 +20,15 @@ docker run username/noti:v1
 docker login 
 # in case of docker hub, enter your username and password
 
-docker push username/noti:v1
+docker push username/notification:v1
 ```
 
 Edit the deployment.yaml under the /kubernetes directory:
 ```
     spec:
       containers:
-        - name: noti
-          image: username/noti:latest   # change this image name
+        - name: notification
+          image: username/notification:latest   # change this image name
           ports:
             - containerPort: 8080
 
@@ -41,13 +41,13 @@ kubectl apply -f kubernetes/deployment.yaml
 
 See the pod status:
 ```
-kubectl get pods -l app=noti
+kubectl get pods -l app=notification
 ```
 
 If you have no problem, you can connect to the service by opening a proxy between your local and the kubernetes by using this command:
 ```
 # new terminal
-kubectl port-forward deploy/noti 8080:8080
+kubectl port-forward deploy/notification 8080:8080
 
 # another terminal
 http localhost:8080
@@ -55,7 +55,7 @@ http localhost:8080
 
 If you have any problem on running the pod, you can find the reason by hitting this:
 ```
-kubectl logs -l app=noti
+kubectl logs -l app=notification
 ```
 
 Following problems may be occurred:

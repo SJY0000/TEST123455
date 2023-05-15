@@ -7,7 +7,7 @@ import test.infra.AbstractEvent;
 
 @Data
 @ToString
-public class Fileupload extends AbstractEvent {
+public class FileUploaded extends AbstractEvent {
 
     private Long id;
     private String name;

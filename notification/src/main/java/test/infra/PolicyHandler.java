@@ -16,21 +16,36 @@ import test.domain.*;
 @Transactional
 public class PolicyHandler {
 
-    @Autowired
-    IndexRepository indexRepository;
-
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='Fileupload'"
+        condition = "headers['type']=='VideoProcessed'"
     )
-    public void wheneverFileupload_Index(@Payload Fileupload fileupload) {
-        Fileupload event = fileupload;
-        System.out.println("\n\n##### listener Index : " + fileupload + "\n\n");
-
+    public void wheneverVideoProcessed_NotifyToUser(
+        @Payload VideoProcessed videoProcessed
+    ) {
+        VideoProcessed event = videoProcessed;
+        System.out.println(
+            "\n\n##### listener NotifyToUser : " + videoProcessed + "\n\n"
+        );
         // Sample Logic //
-        Index.index(event);
+
+    }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='FileUploaded'"
+    )
+    public void wheneverFileUploaded_NotifyToUser(
+        @Payload FileUploaded fileUploaded
+    ) {
+        FileUploaded event = fileUploaded;
+        System.out.println(
+            "\n\n##### listener NotifyToUser : " + fileUploaded + "\n\n"
+        );
+        // Sample Logic //
+
     }
 }
