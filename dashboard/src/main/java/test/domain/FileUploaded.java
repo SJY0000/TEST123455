@@ -1,13 +1,11 @@
 package test.domain;
 
 import java.util.*;
-import lombok.*;
-import test.domain.*;
+import lombok.Data;
 import test.infra.AbstractEvent;
 
 @Data
-@ToString
-public class Fileupload extends AbstractEvent {
+public class FileUploaded extends AbstractEvent {
 
     private Long id;
     private String name;

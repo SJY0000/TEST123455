@@ -10,11 +10,12 @@ import test.config.kafka.KafkaProcessor;
 @SpringBootApplication
 @EnableBinding(KafkaProcessor.class)
 @EnableFeignClients
-public class NotiApplication {
+public class NotificationApplication {
 
     public static ApplicationContext applicationContext;
 
     public static void main(String[] args) {
-        applicationContext = SpringApplication.run(NotiApplication.class, args);
+        applicationContext =
+            SpringApplication.run(NotificationApplication.class, args);
     }
 }

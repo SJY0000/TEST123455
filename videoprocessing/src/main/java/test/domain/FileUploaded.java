@@ -7,7 +7,7 @@ import test.infra.AbstractEvent;
 
 @Data
 @ToString
-public class Fileupload extends AbstractEvent {
+public class FileUploaded extends AbstractEvent {
 
     private Long id;
     private String name;
@@ -15,12 +15,4 @@ public class Fileupload extends AbstractEvent {
     private Date createdTime;
     private String type;
     private String userid;
-
-    public Fileupload(File aggregate) {
-        super(aggregate);
-    }
-
-    public Fileupload() {
-        super();
-    }
 }

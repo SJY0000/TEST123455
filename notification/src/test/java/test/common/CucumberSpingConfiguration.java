@@ -2,8 +2,8 @@ package test.common;
 
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import test.NotiApplication;
+import test.NotificationApplication;
 
 @CucumberContextConfiguration
-@SpringBootTest(classes = { NotiApplication.class })
+@SpringBootTest(classes = { NotificationApplication.class })
 public class CucumberSpingConfiguration {}
