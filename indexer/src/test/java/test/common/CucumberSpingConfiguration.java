@@ -2,8 +2,8 @@ package test.common;
 
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import test.BoundedContext1169Application;
+import test.IndexerApplication;
 
 @CucumberContextConfiguration
-@SpringBootTest(classes = { BoundedContext1169Application.class })
+@SpringBootTest(classes = { IndexerApplication.class })
 public class CucumberSpingConfiguration {}

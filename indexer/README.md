@@ -1,4 +1,4 @@
-# BoundedContext1169
+# indexer
 
 ## Running in local development environment
 
@@ -10,8 +10,8 @@ mvn spring-boot:run
 
 ```
 mvn package -B -DskipTests
-docker build -t username/BoundedContext1169:v1 .
-docker run username/BoundedContext1169:v1
+docker build -t username/indexer:v1 .
+docker run username/indexer:v1
 ```
 
 ## Push images and running in Kubernetes
@@ -20,15 +20,15 @@ docker run username/BoundedContext1169:v1
 docker login 
 # in case of docker hub, enter your username and password
 
-docker push username/BoundedContext1169:v1
+docker push username/indexer:v1
 ```
 
 Edit the deployment.yaml under the /kubernetes directory:
 ```
     spec:
       containers:
-        - name: BoundedContext1169
-          image: username/BoundedContext1169:latest   # change this image name
+        - name: indexer
+          image: username/indexer:latest   # change this image name
           ports:
             - containerPort: 8080
 
@@ -41,13 +41,13 @@ kubectl apply -f kubernetes/deployment.yaml
 
 See the pod status:
 ```
-kubectl get pods -l app=BoundedContext1169
+kubectl get pods -l app=indexer
 ```
 
 If you have no problem, you can connect to the service by opening a proxy between your local and the kubernetes by using this command:
 ```
 # new terminal
-kubectl port-forward deploy/BoundedContext1169 8080:8080
+kubectl port-forward deploy/indexer 8080:8080
 
 # another terminal
 http localhost:8080
@@ -55,7 +55,7 @@ http localhost:8080
 
 If you have any problem on running the pod, you can find the reason by hitting this:
 ```
-kubectl logs -l app=BoundedContext1169
+kubectl logs -l app=indexer
 ```
 
 Following problems may be occurred:

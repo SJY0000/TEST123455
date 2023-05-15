@@ -10,12 +10,12 @@ import test.config.kafka.KafkaProcessor;
 @SpringBootApplication
 @EnableBinding(KafkaProcessor.class)
 @EnableFeignClients
-public class BoundedContext1169Application {
+public class IndexerApplication {
 
     public static ApplicationContext applicationContext;
 
     public static void main(String[] args) {
         applicationContext =
-            SpringApplication.run(BoundedContext1169Application.class, args);
+            SpringApplication.run(IndexerApplication.class, args);
     }
 }

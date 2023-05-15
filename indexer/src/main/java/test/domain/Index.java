@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
-import test.NotiApplication;
+import test.IndexerApplication;
 import test.domain.FileIndexed;
 
 @Entity
@@ -28,7 +28,7 @@ public class Index {
     }
 
     public static IndexRepository repository() {
-        IndexRepository indexRepository = NotiApplication.applicationContext.getBean(
+        IndexRepository indexRepository = IndexerApplication.applicationContext.getBean(
             IndexRepository.class
         );
         return indexRepository;
