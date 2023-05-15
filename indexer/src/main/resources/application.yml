@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   application:
-    name: boundedcontext1169
+    name: indexer
 ---
 
 spring:
@@ -27,7 +27,7 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: BoundedContext1169
+          group: indexer
           destination: test
           contentType: application/json
         event-out:
@@ -41,7 +41,7 @@ logging:
 
 
 server:
-  port: 8085
+  port: 8083
 
 ---
 
@@ -62,7 +62,7 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: BoundedContext1169
+          group: indexer
           destination: test
           contentType: application/json
         event-out:

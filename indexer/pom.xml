@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>test</groupId>
-	<artifactId>BoundedContext1169</artifactId>
+	<artifactId>indexer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BoundedContext1169</name>
+	<name>indexer</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
